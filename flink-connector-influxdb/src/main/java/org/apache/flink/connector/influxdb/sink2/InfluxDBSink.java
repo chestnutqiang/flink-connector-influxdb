@@ -17,8 +17,10 @@
  */
 package org.apache.flink.connector.influxdb.sink2;
 
+import org.apache.flink.api.connector.sink2.InitContext;
 import org.apache.flink.api.connector.sink2.Sink;
 import org.apache.flink.api.connector.sink2.SinkWriter;
+import org.apache.flink.api.connector.sink2.WriterInitContext;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.influxdb.sink2.writer.InfluxDBSchemaSerializer;
 import org.apache.flink.connector.influxdb.sink2.writer.InfluxDBWriter;
@@ -48,15 +50,16 @@ public class InfluxDBSink<IN> implements Sink<IN> {
 
 
     @Override
-    public SinkWriter<IN> createWriter(InitContext initContext) throws IOException {
+    public SinkWriter<IN> createWriter(WriterInitContext context) throws IOException {
         final InfluxDBWriter<IN> writer =
                 new InfluxDBWriter<>(this.influxDBSchemaSerializer, this.configuration);
-        writer.setProcessingTimerService(initContext.getProcessingTimeService());
+        writer.setProcessingTimerService(context.getProcessingTimeService());
         return writer;
     }
 
     public Configuration getConfiguration() {
         return this.configuration;
     }
+
 
 }

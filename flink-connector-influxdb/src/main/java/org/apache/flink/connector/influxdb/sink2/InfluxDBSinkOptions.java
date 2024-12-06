@@ -80,12 +80,12 @@ public final class InfluxDBSinkOptions {
                     .withDescription("InfluxDB organization name.");
 
     public static InfluxDBClient getInfluxDBClient(final Configuration configuration) {
-        final String url = configuration.getString(INFLUXDB_URL);
-        final String username = configuration.getString(INFLUXDB_USERNAME);
-        final String password = configuration.getString(INFLUXDB_PASSWORD);
-        final String token = configuration.getString(INFLUXDB_TOKEN);
-        final String bucket = configuration.getString(INFLUXDB_BUCKET);
-        final String organization = configuration.getString(INFLUXDB_ORGANIZATION);
+        final String url = configuration.get(INFLUXDB_URL);
+        final String username = configuration.get(INFLUXDB_USERNAME);
+        final String password = configuration.get(INFLUXDB_PASSWORD);
+        final String token = configuration.get(INFLUXDB_TOKEN);
+        final String bucket = configuration.get(INFLUXDB_BUCKET);
+        final String organization = configuration.get(INFLUXDB_ORGANIZATION);
         InfluxDBClientOptions.Builder builder = InfluxDBClientOptions.builder();
         builder = builder
                 .url(url)

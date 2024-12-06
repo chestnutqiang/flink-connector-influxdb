@@ -62,10 +62,10 @@ public final class InfluxDBSplitReader implements SplitReader<DataPoint, InfluxD
     private InfluxDBSplit split;
 
     public InfluxDBSplitReader(final Configuration configuration) {
-        this.enqueueWaitTime = configuration.getLong(ENQUEUE_WAIT_TIME);
-        this.maximumLinesPerRequest = configuration.getInteger(MAXIMUM_LINES_PER_REQUEST);
-        this.defaultPort = configuration.getInteger(PORT);
-        final int capacity = configuration.getInteger(INGEST_QUEUE_CAPACITY);
+        this.enqueueWaitTime = configuration.get(ENQUEUE_WAIT_TIME);
+        this.maximumLinesPerRequest = configuration.get(MAXIMUM_LINES_PER_REQUEST);
+        this.defaultPort = configuration.get(PORT);
+        final int capacity = configuration.get(INGEST_QUEUE_CAPACITY);
         this.ingestionQueue = new FutureCompletingBlockingQueue<>(capacity);
     }
 

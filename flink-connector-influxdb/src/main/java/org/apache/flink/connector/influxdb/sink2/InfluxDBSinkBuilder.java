@@ -78,7 +78,7 @@ public final class InfluxDBSinkBuilder<IN> {
      */
     public InfluxDBSinkBuilder<IN> setInfluxDBUrl(final String influxDBUrl) {
         this.influxDBUrl = influxDBUrl;
-        this.configuration.setString(INFLUXDB_URL, checkNotNull(influxDBUrl));
+        this.configuration.set(INFLUXDB_URL, checkNotNull(influxDBUrl));
         return this;
     }
 
@@ -90,7 +90,7 @@ public final class InfluxDBSinkBuilder<IN> {
      */
     public InfluxDBSinkBuilder<IN> setInfluxDBUsername(final String influxDBUsername) {
         this.influxDBUsername = influxDBUsername;
-        this.configuration.setString(INFLUXDB_USERNAME, checkNotNull(influxDBUsername));
+        this.configuration.set(INFLUXDB_USERNAME, checkNotNull(influxDBUsername));
         return this;
     }
 
@@ -102,7 +102,7 @@ public final class InfluxDBSinkBuilder<IN> {
      */
     public InfluxDBSinkBuilder<IN> setInfluxDBPassword(final String influxDBPassword) {
         this.influxDBPassword = influxDBPassword;
-        this.configuration.setString(INFLUXDB_PASSWORD, checkNotNull(influxDBPassword));
+        this.configuration.set(INFLUXDB_PASSWORD, checkNotNull(influxDBPassword));
         return this;
     }
 
@@ -114,7 +114,7 @@ public final class InfluxDBSinkBuilder<IN> {
      */
     public InfluxDBSinkBuilder<IN> setInfluxDBToken(final String influxDBToken) {
         this.influxDBToken = influxDBToken;
-        this.configuration.setString(INFLUXDB_TOKEN, checkNotNull(influxDBToken));
+        this.configuration.set(INFLUXDB_TOKEN, checkNotNull(influxDBToken));
         return this;
     }
 
@@ -126,7 +126,7 @@ public final class InfluxDBSinkBuilder<IN> {
      */
     public InfluxDBSinkBuilder<IN> setInfluxDBBucket(final String bucketName) {
         this.bucketName = bucketName;
-        this.configuration.setString(INFLUXDB_BUCKET, checkNotNull(bucketName));
+        this.configuration.set(INFLUXDB_BUCKET, checkNotNull(bucketName));
         return this;
     }
 
@@ -138,7 +138,7 @@ public final class InfluxDBSinkBuilder<IN> {
      */
     public InfluxDBSinkBuilder<IN> setInfluxDBOrganization(final String organizationName) {
         this.organizationName = organizationName;
-        this.configuration.setString(INFLUXDB_ORGANIZATION, checkNotNull(organizationName));
+        this.configuration.set(INFLUXDB_ORGANIZATION, checkNotNull(organizationName));
         return this;
     }
 
@@ -164,7 +164,7 @@ public final class InfluxDBSinkBuilder<IN> {
      * @return this InfluxDBSinkBuilder.
      */
     public InfluxDBSinkBuilder<IN> addCheckpointDataPoint(final boolean shouldWrite) {
-        this.configuration.setBoolean(WRITE_DATA_POINT_CHECKPOINT, shouldWrite);
+        this.configuration.set(WRITE_DATA_POINT_CHECKPOINT, shouldWrite);
         return this;
     }
 
@@ -179,7 +179,7 @@ public final class InfluxDBSinkBuilder<IN> {
         if (bufferSize <= 0) {
             throw new IllegalArgumentException("The buffer size should be greater than 0.");
         }
-        this.configuration.setInteger(WRITE_BUFFER_SIZE, bufferSize);
+        this.configuration.set(WRITE_BUFFER_SIZE, bufferSize);
         return this;
     }
 

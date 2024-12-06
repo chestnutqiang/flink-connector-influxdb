@@ -75,7 +75,7 @@ public final class InfluxDBSourceBuilder<OUT> {
      * @return this InfluxDBSourceBuilder.
      */
     public InfluxDBSourceBuilder<OUT> setEnqueueWaitTime(final long timeOut) {
-        this.configuration.setLong(InfluxDBSourceOptions.ENQUEUE_WAIT_TIME, timeOut);
+        this.configuration.set(InfluxDBSourceOptions.ENQUEUE_WAIT_TIME, timeOut);
         return this;
     }
 
@@ -86,7 +86,7 @@ public final class InfluxDBSourceBuilder<OUT> {
      * @return this InfluxDBSourceBuilder.
      */
     public InfluxDBSourceBuilder<OUT> setIngestQueueCapacity(final int capacity) {
-        this.configuration.setInteger(InfluxDBSourceOptions.INGEST_QUEUE_CAPACITY, capacity);
+        this.configuration.set(InfluxDBSourceOptions.INGEST_QUEUE_CAPACITY, capacity);
         return this;
     }
 
@@ -98,7 +98,7 @@ public final class InfluxDBSourceBuilder<OUT> {
      * @return this InfluxDBSourceBuilder.
      */
     public InfluxDBSourceBuilder<OUT> setMaximumLinesPerRequest(final int max) {
-        this.configuration.setInteger(InfluxDBSourceOptions.MAXIMUM_LINES_PER_REQUEST, max);
+        this.configuration.set(InfluxDBSourceOptions.MAXIMUM_LINES_PER_REQUEST, max);
         return this;
     }
 
@@ -110,7 +110,7 @@ public final class InfluxDBSourceBuilder<OUT> {
      * @return this InfluxDBSourceBuilder.
      */
     public InfluxDBSourceBuilder<OUT> setPort(final int port) {
-        this.configuration.setInteger(InfluxDBSourceOptions.PORT, port);
+        this.configuration.set(InfluxDBSourceOptions.PORT, port);
         return this;
     }
 
